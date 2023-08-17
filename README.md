@@ -1,1 +1,1 @@
-# IEEE-AFRICON-2023
+# ieee-africon-2023
