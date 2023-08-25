@@ -19,6 +19,7 @@ cycler==0.11.0
 debugpy==1.6.7.post1
 decorator==5.1.1
 defusedxml==0.7.1
+et-xmlfile==1.1.0
 executing==1.2.0
 fastjsonschema==2.18.0
 filelock==3.12.2
@@ -60,6 +61,7 @@ notebook==7.0.2
 notebook_shim==0.2.3
 numpy==1.25.2
 opencv-python==4.8.0.76
+openpyxl==3.1.2
 overrides==7.4.0
 packaging==23.1
 pandas==2.0.3
