@@ -69,8 +69,11 @@ sleep(2)
 timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 filename = f'picamera_image_{timestamp}.jpg'
 camera.capture(filename)
+```
+
 
 If you're using a USB webcam, you can use the `fswebcam` library to capture an image instead. Here's an example Python script that uses `fswebcam` to do this:
+
 
 ```python
 import os
@@ -104,7 +107,7 @@ python3 capture_image.py
 Make sure to make this script executable by running `chmod +x /path/to/script.sh`. Then, you can use crontab to run this script at regular intervals. For example, to run the script every hour, you can add the following line to your crontab:
 
 ```
-0 * * * * /path/to/script.sh
+/path/to/script.sh
 
 
 
