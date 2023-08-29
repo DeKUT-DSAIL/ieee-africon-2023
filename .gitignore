@@ -2,3 +2,5 @@
 *.pyc
 venv/
 yolov5/
+predictions/
+output/
