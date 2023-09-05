@@ -1,9 +1,14 @@
-from picamera import PiCamera
-from time import sleep
+from picamera2 import Picamera, Preview
+import time
 
-camera = PiCamera()
+camera = Picamera()
 #camera.rotation = 180
+
+camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+camera.configure(camera_config)
+
 camera.start_preview()
-sleep(5)
-camera.capture('/home/pi/Desktop/image-py.jpg') 
+camera.start()
+time.sleep(2)
+camera.capture_file('/home/pi/Desktop/image-py.jpg') 
 camera.stop_preview()
