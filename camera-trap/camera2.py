@@ -11,5 +11,5 @@ camera.start_preview()
 camera.start()
 for i in range(5):
     time.sleep(5)
-    camera.capture('/home/pi/Desktop/image%s.jpg' % i)
+    camera.capture_file('/home/pi/Desktop/image%s.jpg' % i)
 camera.stop_preview()
