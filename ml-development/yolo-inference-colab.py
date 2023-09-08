@@ -16,7 +16,7 @@ def make_preds(file):
     plt.imsave('predictions/'+file,pred)
 
 #load animal detection model
-model = torch.hub.load('yolov5', 'custom', path=r'/content/ieee-africon-2023/ml-development/models/lasst.pt',verbose=False)
+model = torch.hub.load('yolov5', 'custom', path=r'/content/ieee-africon-2023/ml-development/models/lasst.pt',source='local',force_reload=True)
 print('Detection model has loaded')
 
 #Set the confidence which you require from the model
