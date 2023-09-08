@@ -1,7 +1,7 @@
-from picamera2 import Picamera, Preview
+from picamera2 import Picamera2, Preview
 import time
 
-camera = Picamera()
+camera = Picamera2()
 #camera.rotation = 180
 
 camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
