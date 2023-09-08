@@ -7,9 +7,10 @@ import matplotlib.pyplot as plt
 import cv2
 
 os.makedirs('predictions',exist_ok=True)
+path = 'dataset/images/'
 
 def make_preds(file):
-    results = model('dataset/images/'+file)
+    results = model(path+file)
     print(results)
     pred = np.squeeze(results.render())
     plt.imsave('predictions/'+file,pred)
@@ -21,6 +22,6 @@ print('Detection model has loaded')
 #Set the confidence which you require from the model
 model.conf = 0.45
 
-images = os.listdir('dataset/images/')
+images = os.listdir(path)
 for i in images:
     make_preds(i)
