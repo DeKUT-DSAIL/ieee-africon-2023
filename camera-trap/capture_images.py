@@ -7,7 +7,8 @@ camera = Picamera2()
 
 
 #several images at once
-camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size>camera.configure(camera_config)
+camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+camera.configure(camera_config)
 
 camera.start_preview()
 camera.start()

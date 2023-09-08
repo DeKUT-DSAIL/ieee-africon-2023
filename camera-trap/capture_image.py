@@ -9,7 +9,8 @@ time.sleep(2)
 
 timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 filename = f'{timestamp}.jpg'
-camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size>camera.configure(camera_config)
+camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lores")
+camera.configure(camera_config)
 
 camera.start_preview()
 camera.start()
