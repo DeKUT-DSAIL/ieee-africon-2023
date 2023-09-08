@@ -1,7 +1,7 @@
 ### Camera Traps
 
 ### Introduction
-A camera trap is a remotely activated camera that is equipped with a motion sensor, an infrared sensor, or uses a light beam as a trigger.
+A camera trap is a remotely activated camera that is equipped with a motion sensor, or an infrared sensor or uses a light beam as a trigger.
 
 Camera traps are used for wildlife photography, surveillance, and ecological research.
 
@@ -45,30 +45,35 @@ If you're using a USB webcam, simply plug it into one of the USB ports on your R
 
 You'll need to install the `picamera` library if you're using a Pi camera or the `fswebcam` library if you're using a USB webcam. You can do this by running the following commands in the terminal:
 
-- For Pi Camera: `sudo apt-get update && sudo apt-get install python-picamera python3-picamera`
+- For Pi Camera: `sudo apt-get update && sudo apt-get install python3-picamera2`
 - For USB webcam: `sudo apt-get update && sudo apt-get install fswebcam`
+  
 
 ## Step 4: Write a Python script
 
-Next, you'll need to write a Python script to capture images or videos using the `picamera` or `fswebcam` library.
+Next, you'll need to write a Python script to capture images or videos using the `picamera2` or `fswebcam` library.
 
-Here's an example Python script that uses the `picamera` library to capture an image using a Pi Camera and save it with a timestamped filename:
+Here's an example Python script that uses the `picamera2` library to capture an image using a Pi Camera and save it with a timestamped filename:
 
 
 ```python
-from picamera import PiCamera
-from time import sleep
+from picamera2 import Picamera2, Preview
+import time
 from datetime import datetime
 
-camera = PiCamera()
+camera = Picamera2()
+#camera.rotation = 180
+#Camera warm-up time
+time.sleep(2)
 
-# Camera warm-up time
-sleep(2)
-
-# Capture an image and save it with a timestamped filename
 timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
-filename = f'picamera_image_{timestamp}.jpg'
-camera.capture(filename)
+filename = f'{timestamp}.jpg'
+camera_config = camera.create_still_configuration(main={"size": (1920, 1080)}, lores={"size": (640, 480)}, display="lor>camera.configure(camera_config)
+
+camera.start_preview()
+camera.start()
+camera.capture_file('/home/pi/Desktop/' + filename)
+camera.stop_preview()
 ```
 
 
@@ -82,7 +87,7 @@ from datetime import datetime
 # Capture an image and save it with a timestamped filename
 timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 filename = f'webcam_image_{timestamp}.jpg'
-os.system(f'fswebcam -r 640x480 --no-banner {filename}')
+os.system(f'fswebcam -r 1280x720 --no-banner {filename}')
 ```
 
 ## Step 5: Automate the process
@@ -104,10 +109,10 @@ python3 capture_image.py
 
 ```
 
-Make sure to make this script executable by running `chmod +x /path/to/script.sh`. Then, you can use crontab to run this script at regular intervals. For example, to run the script every hour, you can add the following line to your crontab:
+Make sure to make this script executable by running `chmod +x /path/to/script.sh`. Then, you can use crontab to run this script at regular intervals. For example, to run the script every hour, you can add the following line to your crontab if you would like for your script to run at reboot:
 
 ```
-/path/to/script.sh
+@ reboot /path/to/script.sh
 
 
 
