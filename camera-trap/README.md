@@ -1,4 +1,4 @@
-### Camera Traps
+ ### Camera Traps
 
 ### Introduction
 A camera trap is a remotely activated camera that is equipped with a motion sensor, or an infrared sensor or uses a light beam as a trigger.
@@ -8,7 +8,8 @@ Camera traps are used for wildlife photography, surveillance, and ecological res
 In this tutorial, we'll show you how to set up a camera trap using a Raspberry Pi, Pi Camera, or USB webcam and Python.
 
 We'll cover the following topics:
-1. Setting up your Raspberry Pi
+0. Setting up your Raspberry Pi
+1. Connecting to your Raspberry Pi
 2. Connecting your camera
 3. Installing necessary libraries
 4. Writing a Python script to capture images or videos
@@ -22,7 +23,7 @@ Before starting this tutorial, you will need the following:
 - A microSD card with the Raspbian operating system installed
 - Access to the Raspberry Pi via SSH or its desktop interface
 
-#### Step 1: Set up your Raspberry Pi
+#### Step 0: Set up your Raspberry Pi
 Make sure your Raspberry Pi is set up and running. You will need to have the Raspbian operating system installed and be able to connect to your Raspberry Pi via SSH or have access to its desktop interface.
 
 To be able to SSH to the Raspberry Pi you will need to install the following:
@@ -30,6 +31,9 @@ To be able to SSH to the Raspberry Pi you will need to install the following:
 2. VNC Viewer
 
 If you're new to using a Raspberry Pi, you can follow [this guide](https://projects.raspberrypi.org/en/projects/raspberry-pi-setting-up) to get started.
+
+#### Step 1: Connecting to your Raspberry Pi
+...
 
 
 #### Step 2: Connect your camera
